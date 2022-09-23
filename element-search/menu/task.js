@@ -10,12 +10,23 @@ for (let i = 0; i < menuValve; i++ ) {
             event.preventDefault();
           }  
               
-            if (menuActive) {
+            if (menuSub === menuActive && menuActive) {
                 menuActive.classList.remove('menu_active');
+    
+            return;
             }
+
+        if (menuSub) {
+
+            if (menuActive) {
+              menuActive.classList.remove('menu_active');          
+            }
+            
             menuSub.classList.add('menu_active');
-
-
-        return;
-    });
+            
+            return;
+          }
+      
+          return;
+        });
 }
