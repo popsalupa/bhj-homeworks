@@ -81,12 +81,53 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
+
+      const variantsArray = [];
+      const customArray = [
       {
-        text: 'Чубакка',
-        value: '1'
-      }
+        text: 'Чародей',
+        value: '5',
+      },
+      {
+        text: 'Челик',
+        value: '6',
+      },
+      {
+        text: 'Челнок',
+        value: '7',
+      },
+      {
+        text: 'Червяк',
+        value: '8',
+      },
+      {
+        text: 'Чупакабра',
+        value: '9',
+      },
+      {
+        text: 'Человек-яйца',
+        value: '10',
+      },
+      {
+        text: 'Чернозем',
+        value: '11',
+      },
     ];
+
+    for (let key of customArray) {
+      if (key.text.includes(text)) {
+        variantsArray.push( {text: key.text, value: key.value} );
+      }
+    }
+
+    for (let option of this.input.options) {
+      if (option.innerText.includes(text)) {
+        variantsArray.push( {text: option.innerText, value: option.value} );
+      }
+    }
+
+
+     return variantsArray;
   }
 }
 
